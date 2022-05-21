@@ -8,11 +8,6 @@ var now = moment().format("H A");
 var rows = $(".time-block");
 var currentHour = date.getHours();
 
-// tasks = [];
-// var userInput = document.querySelector("textarea");
-
-
-// var data = getData();
 
 let foundcurrenthour = false;
 
@@ -35,21 +30,18 @@ $.each(rows, function(i, row) {
 //event listener
 $(".saveBtn").on("click", saveTask)
 
-// var getTask = localStorage.getItem("tasks");
-
-// var savedTasks = JSON.parse(localStorage.getItem("savedTasks")) || [];
-//create a variable to put in the array here
+//save tasks to storage
 
 function saveTask() {
-    // var userInput = document.querySelector("textarea");
+
     var index = $(".saveBtn").index(this);
     console.log(index)
-        // tasks[index] = $(this).parent().attr("id");
-        // tasks[index] = userInput.value;
-        // tasks[index] = $(this).parent().find(".form-control").text();
+
     localStorage.setItem("textarea" + String(index), $("textarea")[index].value);
-    // localStorage.setItem("tasks", JSON.stringify(userInput.value));
+
 }
+
+//persisting tasks
 
 function readLocalStorage() {
     for (index = 0; index < 9; index++) {
